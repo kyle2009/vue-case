@@ -10,6 +10,7 @@ import homeMain from './components/home-main.vue'
 import Announce from './page/details/announce.vue'
 import error from './page/404/404'
 import admin from './page/admin/admin'
+
 export default {
     // mode: 'history',  // 打包时需要注释掉，否则打包的静态文件无法运行。
     routes:[
