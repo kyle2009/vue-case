@@ -33,7 +33,7 @@
         methods:{
             hpjy:function () {
                 this.$parent.isShowMenuSub = true;
-                this.$router.push('indexMain');
+                this.$router.push('homeMain');
             }
         }
     }

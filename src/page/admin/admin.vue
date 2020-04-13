@@ -11,8 +11,8 @@
 
 </template>
 <script>
-    import index from './app-header.vue';
-    import menuLeft from './menu-left';
+    import index from '../../components/app-header.vue';
+    import menuLeft from '../../components/menu-left';
     // import menuSub from './menu-sub';
     // import echarts from 'echarts';
     // import 'echarts/map/js/china.js';

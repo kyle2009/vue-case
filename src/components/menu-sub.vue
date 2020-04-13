@@ -23,7 +23,7 @@
 			handleSelect(key) {
 				switch (key) {
 						case '1':
-							this.$router.push('indexMain')
+							this.$router.push('homeMain')
 							break;
 					case '2':
 						this.$router.push('shishishuju')

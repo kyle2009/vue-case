@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <menuSub></menuSub>
+
         <!--通知模块-->
         <div class="tongGao">
             <el-row>
@@ -12,13 +12,16 @@
             <el-row>
                 <el-col :span="12"><div class="grid-content bg-purple">
                     <div class="msg-item">
-                        <a href="">小程序管理后台新增页面收录设置的开关</a>
+                        <router-link :to="{ name: 'Announce', params: { userId: 123 }}">小程序管理后台新增页面收录设置的开关</router-link>
                         <span>2019-03-29</span>
                     </div>
                 </div></el-col>
                 <el-col :span="12"><div class="grid-content bg-purple-light">
                     <div class="msg-item">
-                        <a href="">小程序管理后台新增页面收录设置的开关</a>
+                        <router-link :to="{ path: '/announce', query: { plan: 'private' }}">
+                            小程序管理后台新增页面收录设置的开关
+                        </router-link>
+                        <a href=""></a>
                         <span>2019-03-29</span>
                     </div>
                 </div>
@@ -163,11 +166,10 @@
 </template>
 
 <script>
-    import menuSub from './menu-sub';
     export default {
         name: "index-main.vue",
         components:{
-            menuSub
+
         },
         data () {
             return {

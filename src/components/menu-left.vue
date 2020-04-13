@@ -43,7 +43,6 @@
 				console.log(key, keyPath);
 			},
 			toHome:function () {
-				this.$parent.isShowMenuSub = false;
 				this.$router.push('home');
 			}
 		}
