@@ -139,21 +139,31 @@
         <div class="gaiLanShuJu">
             <el-row>
                 <el-col :span="12">
-                    <h3>活跃日线图</h3>
+                    <h3>活跃用户</h3>
                 </el-col>
                 <el-col :span="12">
-                    <h3>新增日线图</h3>
+                    <h3>新增用户</h3>
                 </el-col>
             </el-row>
             <el-row>
                 <el-col :span="12">
                     <div class="huoYueTuBiao">
-                        <ve-line :data="chartData"></ve-line>
+                        <div v-if="huoYueData.rows.length">
+                            <ve-line :data="huoYueData"></ve-line>
+                        </div>
+                        <div v-else>
+                            <p>目前没有数据</p>
+                        </div>
                     </div>
                 </el-col>
                 <el-col :span="12">
                     <div class="XinZhenTuBiao">
-                        <ve-line :data="chartData"></ve-line>
+                        <div v-if="xinZengData.rows.length">
+                            <ve-line :data="xinZengData"></ve-line>
+                        </div>
+                        <div v-else>
+                            <p>目前没有数据</p>
+                        </div>
                     </div>
                 </el-col>
             </el-row>
@@ -167,21 +177,69 @@
 
 <script>
     export default {
-        name: "index-main.vue",
+        name: "index-main",
         components:{
 
         },
         data () {
             return {
-                chartData: {
-                    columns: ['日期', '访问用户', '下单用户'],
-                    rows: [
-                        { '日期': '2018-05-22', '访问用户': 32371, '下单用户': 19810 },
-                        { '日期': '2018-05-23', '访问用户': 12328, '下单用户': 4398 },
-                        { '日期': '2018-05-24', '访问用户': 92381, '下单用户': 52910 }
-                    ]
-                }
+                // 参考数据
+                // chartData: {
+                //     columns: ['日期', '访问用户', '下单用户'],
+                //     rows: [
+                //         { '日期': '2018-05-22', '访问用户': 32371, '下单用户': 19810 },
+                //         { '日期': '2018-05-23', '访问用户': 12328, '下单用户': 4398 },
+                //         { '日期': '2018-05-24', '访问用户': 92381, '下单用户': 52910 }
+                //     ]
+                // },
+                xinZengData:{
+                    columns: ['日期', '人数'],
+                    rows:[]
+                },
+                huoYueData:{
+                    columns: ['日期', '人数'],
+                    rows:[]
+                },
             }
+        },
+        created() {
+            console.log(this.$XH.getDay())
+            // 渲染新增用户数
+            this.getXinZengList({
+                "Page": 1,
+                "PageSize": 30,
+                "AppId": 1,
+                "ActionId": 5,
+                "StartTime": "2020-04-07 17:00:00",
+                "EndTime": this.$XH.getDay()
+            })
+            // 渲染活跃用户数
+            this.getActionDailyList({
+                "Page": 1,
+                "PageSize": 30,
+                "AppId": 1,
+                "ActionId": 4,
+                "StartTime": "2020-04-07 17:00:00",
+                "EndTime": this.$XH.getDay()
+            });
+        },
+        methods:{
+            // 获取活跃用户
+            async getActionDailyList(data){
+                // eslint-disable-next-line no-unused-vars
+                let res = await this.$Http.getActionDailyList(data);
+                console.log(res.list)
+                this.huoYueData.rows = this.$XH.toZiDingYiTitle(res.list,'日期','人数');
+
+            },
+            // 获取新增用户数
+            async getXinZengList(data){
+                // eslint-disable-next-line no-unused-vars
+                let res = await this.$Http.getActionDailyList(data);
+                console.log(res.list)
+                this.xinZengData.rows = this.$XH.toZiDingYiTitle(res.list,'日期','人数');
+
+            },
         }
     }
 </script>
@@ -229,6 +287,7 @@
         border: 1px solid #e7e7eb;
         box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
         margin-top: 40px;
+        margin-bottom: 40px;
     }
     #app h3 {
         color: #353535;

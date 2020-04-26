@@ -18,6 +18,7 @@ export default {
         {path:'/admin',component:admin,
             children: [
                 // 当 /user/:id 匹配成功，
+                {path:'',component:home},
                 // UserHome 会被渲染在 User 的 <router-view> 中
                 { path: '/home', component: home },
                 {path:'/Announce',name:'Announce',component:Announce},
@@ -29,7 +30,6 @@ export default {
                         {path:'/yewufenxi',component:yewufenxi},
                         {path:'/yonghuhuaxiang',component:yonghuhuaxiang},
                         {path:'/homeMain',component:homeMain},
-
                     ]
                 },
                 // ...其他子路由

@@ -61,4 +61,246 @@
 	}
 	```
 
-3. Todo...
+3. 每分钟粒度查询
+   1. Method: POST
+   2. URL: http://118.25.195.73:9999/am/getActionMinuteList
+	```
+	Request Payload:
+    {
+        "Page": 1,
+        "PageSize": 10,
+        "AppId": 1,
+        "ActionId": 1,
+        "StartTime": "2020-04-17 17:00:00",
+        "EndTime": "2020-04-17 18:59:59"
+    }
+
+	Response:
+    {
+        "data": {
+            "list": [
+                {
+                    "count": 0,
+                    "time": "2020-04-17 17:59:00"
+                },
+                {
+                    "count": 0,
+                    "time": "2020-04-17 17:58:00"
+                },
+                {
+                    "count": 0,
+                    "time": "2020-04-17 17:57:00"
+                }
+            ],
+            "page": 1,
+            "pageSize": 10,
+            "total": 60
+        },
+        "msg": "获取数据成功",
+        "success": true
+    }
+	```
+
+4. 每5分钟粒度查询
+   1. Method: POST
+   2. URL: http://118.25.195.73:9999/am5/getActionMinute5List
+	```
+	Request Payload:
+    {
+        "Page": 1,
+        "PageSize": 10,
+        "AppId": 1,
+        "ActionId": 1,
+        "StartTime": "2020-04-17 17:00:00",
+        "EndTime": "2020-04-17 18:59:59"
+    }
+
+	Response:
+    {
+        "data": {
+            "list": [
+                {
+                    "count": 0,
+                    "time": "2020-04-17 17:55:00"
+                },
+                {
+                    "count": 0,
+                    "time": "2020-04-17 17:50:00"
+                },
+                {
+                    "count": 0,
+                    "time": "2020-04-17 17:45:00"
+                }
+            ],
+            "page": 1,
+            "pageSize": 10,
+            "total": 12
+        },
+        "msg": "获取数据成功",
+        "success": true
+    }
+	```
+
+5. 每小时粒度查询
+   1. Method: POST
+   2. URL: http://118.25.195.73:9999/ah/getActionHourList
+	```
+	Request Payload:
+    {
+        "Page": 1,
+        "PageSize": 10,
+        "AppId": 1,
+        "ActionId": 1,
+        "StartTime": "2020-04-17 17:00:00",
+        "EndTime": "2020-04-17 18:59:59"
+    }
+
+	Response:
+    {
+        "data": {
+            "list": [
+                {
+                    "count": 0,
+                    "time": "2020-04-17 18:00:00"
+                },
+                {
+                    "count": 0,
+                    "time": "2020-04-17 17:00:00"
+                }
+            ],
+            "page": 1,
+            "pageSize": 10,
+            "total": 2
+        },
+        "msg": "获取数据成功",
+        "success": true
+    }
+	```
+
+6. 每日粒度查询
+   1. Method: POST
+   2. URL: http://118.25.195.73:9999/ad/getActionDailyList
+	```
+	Request Payload:
+    {
+        "Page": 1,
+        "PageSize": 10,
+        "AppId": 1,
+        "ActionId": 1,
+        "StartTime": "2020-04-17 17:00:00",
+        "EndTime": "2020-04-17 18:59:59"
+    }
+
+	Response:
+    {
+        "data": {
+            "list": [
+                {
+                    "count": 0,
+                    "time": "2020-04-17 00:00:00"
+                }
+            ],
+            "page": 1,
+            "pageSize": 10,
+            "total": 1
+        },
+        "msg": "获取数据成功",
+        "success": true
+    }
+	```
+	
+7. 每周粒度查询
+   1. Method: POST
+   2. URL: http://118.25.195.73:9999/aw/getActionWeekList
+	```
+	Request Payload:
+    {
+        "Page": 1,
+        "PageSize": 10,
+        "AppId": 1,
+        "ActionId": 1,
+        "StartTime": "2020-04-20 00:00:00",
+        "EndTime": "2020-04-26 23:59:59"
+    }
+
+	Response:
+    {
+        "data": {
+            "list": [
+                {
+                    "count": 80,
+                    "time": "2020-04-20 00:00:00"
+                }
+            ],
+            "page": 1,
+            "pageSize": 10,
+            "total": 1
+        },
+        "msg": "获取数据成功",
+        "success": true
+    }
+	```
+
+8. 每月粒度查询
+   1. Method: POST
+   2. URL: http://118.25.195.73:9999/amo/getActionMonthList
+	```
+	Request Payload:
+    {
+        "Page": 1,
+        "PageSize": 10,
+        "AppId": 1,
+        "ActionId": 1,
+        "StartTime": "2020-04-01 00:00:00",
+        "EndTime": "2020-04-30 23:59:59"
+    }
+
+	Response:
+    {
+        "data": {
+            "list": [
+                {
+                    "count": 160,
+                    "time": "2020-04-01 00:00:00"
+                }
+            ],
+            "page": 1,
+            "pageSize": 10,
+            "total": 1
+        },
+        "msg": "获取数据成功",
+        "success": true
+    }
+	```
+
+9. 每年粒度查询
+   1. Method: POST
+   2. URL: http://118.25.195.73:9999/ay/getActionYearList
+	```
+	Request Payload:
+    {
+        "Page": 1,
+        "PageSize": 10,
+        "AppId": 1,
+        "ActionId": 1,
+        "StartTime": "2020-01-01 00:00:00",
+        "EndTime": "2020-12-31 23:59:59"
+    }
+
+	Response:
+    {
+        "data": {
+            "list": [
+                {
+                    "count": 160,
+                    "time": "2020-01-01 00:00:00"
+                }
+            ],
+            "page": 1,
+            "pageSize": 10,
+            "total": 1
+        },
+        "msg": "获取数据成功",
+        "success": true
+    }
+	```

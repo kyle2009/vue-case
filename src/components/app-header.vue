@@ -5,13 +5,19 @@
             <h1>上海高鼎数据分析平台</h1>
         </div>
 
-        <div class="gongneng">
-            <ul>
-                <li><i class="el-icon-message-solid"></i>消息</li>
-                <li><i class="el-icon-s-tools"></i>设置</li>
-                <li><i class="el-icon-user-solid"></i>kyle</li>
-            </ul>
+        <div class="menu">
+            <el-link  ><i class="el-icon-message-solid xh-margin-right-6"></i>消息</el-link>
+            <el-link class="xh-margin-left-20"><i class="el-icon-s-tools xh-margin-right-6"></i>设置</el-link>
+            <el-dropdown class="xh-margin-left-20" 	>
+                  <span class="el-dropdown-link">
+                    <i class="el-icon-arrow-down el-icon-user-solid xh-margin-right-6"></i>用户名称
+                  </span>
+                <el-dropdown-menu slot="dropdown">
+                    <el-dropdown-item>退出</el-dropdown-item>
+                </el-dropdown-menu>
+            </el-dropdown>
         </div>
+
     </div>
 </template>
 
@@ -20,20 +26,14 @@
 </script>
 
 <style scoped>
-    div {
-        box-sizing: border-box;
-        color: #333;
-    }
+
 	#app {
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 999;
         display: flex;
         align-items: center;
         justify-content: space-between;
 		width: 100%;
-		height: 60px;
+        height: 60px;
+        overflow: hidden;
 		padding: 0 40px;
 		background: #fff;
 		box-shadow: 0 1px 2px rgba(150, 150, 150, 0.3);
@@ -43,7 +43,6 @@
     }
     .logoBox{
         display: flex;
-        height: 40px;
     }
     .logoBox h1 {
         font-size: 24px;
@@ -53,13 +52,7 @@
 
     .logo {
         width: 40px;
-        height: 40px;
+        margin-right: 20px;
     }
 
-    .gongneng ul{
-        display: flex;
-    }
-    .gongneng ul li {
-        margin-left: 40px;
-    }
 </style>

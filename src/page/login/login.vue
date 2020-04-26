@@ -1,13 +1,12 @@
 <template>
     <div id="login">
         <div class="loginWarp">
-            <el-form ref="form" :model="form" label-width="80px">
-
             <img src="../../assets/logo.png" alt="" class="logo">
             <div class="input">
                 <el-input
                         placeholder="请输入账号"
                         v-model="user"
+                        required
                         clearable>
 
                 </el-input>
@@ -17,7 +16,6 @@
                         placeholder="请输入密码"
                         v-model="password"
                         show-password>
-
                 </el-input>
             </div>
             <div class="input yzm-input">
@@ -29,10 +27,8 @@
                 <img :src="yzmImg" alt="" @click="getYZM()" class="yzmImg">
             </div>
             <div class="button">
-                <el-button type="primary" size="medium" @click="onSubmit"  >登录</el-button>
+                <el-button type="primary" size="medium" @click="onSubmit"  :disabled="btnDisabled">登录</el-button>
             </div>
-
-            </el-form>
         </div>
     </div>
 </template>
@@ -40,6 +36,8 @@
 <script>
     import axios from 'axios';
     import api from '@/api/api.config.js';
+    import {loginReq} from '@/api/loginreg.js';
+
     export default {
         name: "login",
         data(){
@@ -56,33 +54,9 @@
         methods:{
             // 表单登录
             onSubmit:function () {
-                // 禁用表单
-
                 let that = this;
-                // {"username":"admin","password":"bi@2020","captcha":"819311","captchaId":"GpfwTyILbnNgYjLS97C0"}
-                axios.post(api.login,{
-                    username: that.user,
-                    password: that.password,
-                    captcha:that.yzm,
-                    captchaId:that.captchaId
-                })
-                    .then(function (response) {
-                        console.log(response);
-                        if (response.data.success){
-                            // 登录成功
-                            that.msgSuccess('登录成功');
-                            // 保存token
-                            localStorage.token=response.data.data.token;
-                            // 跳转到admin页面
-                            that.$router.push('/admin')
-                        } else {
-                            // 登录失败
-                            that.$message.error(response.data.msg);
-                        }
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    });
+                console.log(that)
+                loginReq(that)
             },
 
             // 登录成功提示
@@ -91,11 +65,6 @@
                     message: msg,
                     type: 'success'
                 });
-            },
-
-            // 出错提示
-            msgError(error){
-                this.$message.error(error);
             },
 
             // 获取验证码

@@ -9,6 +9,10 @@
 </script>
 
 <style>
+    @import './assets/base.css';
+    div{
+        box-sizing: border-box;
+    }
     .page {
         width: 500px;
         height: 450px;

@@ -1,0 +1,13 @@
+'apiCount'    => 1, //API次数
+    'apiUser'     => 2, //API用户
+    'loginCount'  => 3, //登录次数
+    'activeUser'  => 4, //活跃用户
+    'newUser'     => 5, //新增用户
+    'scanCount'   => 6, //扫码次数
+    'scanUser'    => 7, //扫码用户
+    'drawCount'   => 8, //抽奖次数
+    'drawUser'    => 9, //抽奖用户
+    'assignCount' => 10, //出题次数
+    'assignUser'  => 11, //出题用户
+    'followCount' => 12, //关注次数
+    'followUser'  => 13, //关注用户
