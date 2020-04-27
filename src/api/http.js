@@ -12,9 +12,8 @@ let instance = axios.create({
 if (localStorage.token){
     instance.defaults.headers['x-token'] = localStorage.token;
 } else {
-    MessageBox({
-        message:'获取token失败，请重新登录'
-    })
+    // 返回到登录页面
+    // window.history.pushState(null, null, "/");
 }
 
 
@@ -64,9 +63,11 @@ instance.interceptors.response.use(function (response) {
         return response.data.data;
     } else {
         // 获取数据失败
+
         MessageBox({
             message:response.data.msg
         })
+
     }
 
 }, function (error) {

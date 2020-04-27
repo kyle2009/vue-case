@@ -17,6 +17,7 @@ Vue.prototype.$XH = XH;
 
 const router = new VueRouter(routerConfig);
 
+
 new Vue({
   render: h => h(App),
   router
