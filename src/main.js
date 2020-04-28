@@ -17,7 +17,10 @@ Vue.prototype.$XH = XH;
 
 const router = new VueRouter(routerConfig);
 
+// 全局导航守卫
+router.afterEach((to, from) => {
 
+})
 new Vue({
   render: h => h(App),
   router
