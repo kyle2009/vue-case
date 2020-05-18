@@ -1,4 +1,4 @@
-const url='http://118.25.195.73:9999'
+const url=''
 module.exports={
     url:url,
 
